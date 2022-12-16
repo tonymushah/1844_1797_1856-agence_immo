@@ -1,7 +1,7 @@
 <?php
     include("./resources/func/loginVerifier.php");
     session_start();
-    verify_session("home.php");
+    verify_session(null);
     include("./resources/expections/Login_Error.php");
     include("./resources/classes/Client.php");
     include("./resources/classes/SQL_Client_Connection.php");

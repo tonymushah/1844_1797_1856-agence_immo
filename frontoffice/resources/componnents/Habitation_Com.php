@@ -11,7 +11,9 @@
                     <p class="card-text"><?php
                         echo $to_use->get_description();
                     ?></p>
-                    <a href="" class="btn btn-primary">Show more detail</a>
+                    <a href="/habitation.php?habitation=<?php
+                        echo $to_use->get_id();
+                    ?>" class="btn btn-primary">Show more detail</a>
                 </div>
             </div>
         <?php

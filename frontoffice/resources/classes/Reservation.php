@@ -76,5 +76,30 @@
             }
             return $returns;
         }
+        public static function doReservation(PDO $connection,int $idHabitation,int $idClient,string $dateDebut,string $dateFin){
+            $error="chambre occupé pendant cette date";
+            $succes="Reservation effectué avec succes";
+
+            $sqlVerif=sprintf("select idHabitation from habitation where idHabitation=%d and idHabitation
+            in (select idHabitation
+            from habitationNonSupprime 
+            where idHabitation not in
+            (select idHabitation
+            from reservation where 
+            DATE('%s')>=dateDebut and DATE('%s')<=dateFin))",$idHabitation,$dateDebut,$dateDebut);
+
+            $stmtVerif=$connection->prepare($sqlVerif);
+            $stmt=$connection->prepare(sprintf("insert into reservation values(nextval('seqreservation'), %d, '%s', '%s', %d)", $idHabitation, $dateDebut, $dateFin, $idClient));
+            $stmtVerif->execute();
+            $stockage=$stmtVerif->fetchAll();
+
+            if(count($stockage)>0){
+                $stmt->execute();
+                return $succes;
+            }
+            else{
+                throw new Exception($error);
+            }
+        }
     }
 ?>

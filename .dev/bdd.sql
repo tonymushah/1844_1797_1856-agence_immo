@@ -200,6 +200,8 @@ INSERT INTO photoHabitation VALUES(nextVal('seqPhoto'),22,'habitation1.jpg');
 
 --liste des habitations
 create view habitationNonSupprime as select * from habitation where idHabitation not in (select idHabitation from habitationDefectueux);
+grant all on habitationNonSupprime to agence_backoffice_service;
+grant all on habitationNonSupprime to agence_frontoffice_service;
 select typeHabitation.nom,nbrChambre,quartier.nom,descript,adresse,tarifParJour from habitationNonSupprime 
         join quartier on habitationNonSupprime.idQuartier=quartier.idQuartier 
         join typeHabitation on typeHabitation.idtype=habitationNonSupprime.idType;
