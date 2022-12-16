@@ -1,0 +1,38 @@
+body{
+    text-align: center;
+    background-image:url("C:/Users/houss/Downloads/Programs/gaphor-2.12.1-portable/Nouveau dossier/1002716.jpg");
+}
+
+.ep{
+    background-color: darkgoldenrod;
+    width: 400px;
+    height: 400px;
+    margin-left: 600px;
+    margin-top: 150px;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 5px 15px 15px 15px;
+}
+.epp{
+    background-color: darkgoldenrod;
+    width: 400px;
+    height: 250px;
+    margin-left: 600px;
+    margin-top: 150px;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 5px 15px 15px 15px;
+}
+
+.ep1{
+    margin-top: 20px;
+}
+.in{
+    width: 200px;
+    height: 20px;
+    border-radius: 10px 10px 10px 10px;
+}
+.bt{
+    margin-top: 40px;
+    border-radius: 10px 10px 10px 10px;
+    width: 80px;
+    height: 25px;
+}
