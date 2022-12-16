@@ -4,7 +4,7 @@
     ?>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Location Agency</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,9 +30,6 @@
                                 </li>
                                 <li><a class="dropdown-item text-danger" href="/disconnect.php">Disconnect</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

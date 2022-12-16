@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Page</title>
+        <title>Welcome Page</title>
         <link rel="stylesheet" href="./resources/bootstrap-5.2.3-dist/css/bootstrap.css">
         <style>
             
@@ -60,7 +60,7 @@
                                 <div
                                     class="md-3"
                                 >
-                                    <input class="form-controll" type="submit" value="Log in"/>
+                                    <button class="btn btn-dark" type="submit">Log in</button>
                                 </div>
                             </form>
                             <script
@@ -89,7 +89,84 @@
                             </script>
                         </div>
                         <div class="tab-pane fade" id="sign_in" role="tabpanel" aria-labelledby="sign_in-tab">
-                            <h1>dsadsadds</h1>
+                            <form
+                                id="sign_in-form"
+                            >
+                                <div
+                                    id="alert-sign_in"
+                                ></div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput2" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Input your name here"
+                                        required
+                                        name="nom"
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Pseudo</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Input your pseudo here"
+                                        required
+                                        name="pseudo"
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                                        required
+                                        name="email"
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password"
+                                        required
+                                        name="password"
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Verify Password"
+                                        required
+                                        name="conf-password"
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Telephone</label>
+                                    <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Verify Password"
+                                        required
+                                        name="telephone"
+                                    >
+                                </div>
+                                <div
+                                    class="md-3"
+                                >
+                                    <button class="btn btn-dark" type="submit">Sign in</button>
+                                </div>
+                            </form>
+                            <script
+                                defer
+                            >
+                                let sign_in = document.getElementById("sign_in-form");
+                                
+                                sign_in.addEventListener("submit", (e) => {
+                                    e.preventDefault();
+                                    let form = new FormData(sign_in);
+                                    axios({
+                                        method : "post",
+                                        url: "/resources/api/sign_in.php",
+                                        data: form
+                                    }).then((result) => {
+                                        location.pathname = "/home.php";
+                                    }).catch((err) => {
+                                        document.getElementById("alert-sign_in").innerHTML = [
+                                            `<div class="alert alert-danger alert-dismissible" role="alert">`,
+                                            `   <div>${err.response.data.message}</div>`,
+                                            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                                            '</div>'
+                                        ].join('')
+                                    });
+                                })
+                            </script>
                         </div>
                     </div>
                 </div>
